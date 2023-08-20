@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"golift.io/xtractr"
+	"github.com/moqsien/xtractr"
 )
 
 func main() {

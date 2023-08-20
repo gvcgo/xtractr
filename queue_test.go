@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/moqsien/xtractr"
 	"github.com/stretchr/testify/assert"
-	"golift.io/xtractr"
 )
 
 //nolint:gochecknoglobals

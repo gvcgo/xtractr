@@ -4,8 +4,8 @@ import (
 	"os"
 	"testing"
 
+	"github.com/moqsien/xtractr"
 	"github.com/stretchr/testify/assert"
-	"golift.io/xtractr"
 )
 
 func TestExtractRAR(t *testing.T) {
