@@ -21,7 +21,7 @@ type XFile struct {
 	FileMode os.FileMode
 	// Write folders with this mode.
 	DirMode os.FileMode
-	// (RAR/7z) Archive password. Blank for none. Gets prepended to Passwords, below.
+	// (RAR/7z/Zip) Archive password. Blank for none. Gets prepended to Passwords, below.
 	Password string
 	// (RAR/7z) Archive passwords (to try multiple).
 	Passwords []string
@@ -185,7 +185,11 @@ func ExtractFile(xFile *XFile) (int64, []string, []string, error) { //nolint:cyc
 	case strings.HasSuffix(sName, ".7z"), strings.HasSuffix(sName, ".7z.001"):
 		return Extract7z(xFile)
 	case strings.HasSuffix(sName, ".zip"):
-		size, files, err = ExtractZIP(xFile)
+		if xFile.Password == "" {
+			size, files, err = ExtractZIP(xFile)
+		} else {
+			size, files, err = ExtractZIPNew(xFile)
+		}
 	case strings.HasSuffix(sName, ".tar.gz"), strings.HasSuffix(sName, ".tgz"):
 		size, files, err = ExtractTarGzip(xFile)
 	case strings.HasSuffix(sName, ".tar.bz2"), strings.HasSuffix(sName, ".tbz2"),
