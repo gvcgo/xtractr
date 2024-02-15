@@ -1,4 +1,4 @@
-module github.com/moqsien/xtractr
+module github.com/gvcgo/xtractr
 
 go 1.19
 

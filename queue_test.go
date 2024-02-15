@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/moqsien/xtractr"
+	"github.com/gvcgo/xtractr"
 	"github.com/stretchr/testify/assert"
 )
 
